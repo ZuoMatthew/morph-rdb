@@ -281,7 +281,14 @@ abstract class MorphBaseRunner(mappingDocument:MorphBaseMappingDocument
 	  this.mapSparqlSql.values
 	}
 	
-
+	def getSQL(query:String): IQuery  = {
+		val sqlQuery =  this.queryTranslator.get.translateFromString(query);
+		return sqlQuery;
+	}
+	
+	def getXMLResults() = {
+	  this.queryResultTranslator.get.queryResultWriter.getOutput()
+	}
 
 	
 }
