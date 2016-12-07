@@ -116,7 +116,7 @@ extends MorphBaseQueryResultWriter(queryTranslator, xmlOutputStream) {
 
 
 	override def getOutput() = {
-		this.xmlDoc;
+		XMLUtility.printXMLDocument(this.xmlDoc, true, true);
 	}
 
 }
