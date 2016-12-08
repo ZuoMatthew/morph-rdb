@@ -25,8 +25,8 @@ extends MorphBaseQueryResultWriter(queryTranslator, xmlOutputStream) {
 		throw new Exception("Query Translator is not set yet!");
     }
 	
-	val xmlDoc = XMLUtility.createNewXMLDocument();
-	val resultsElement = xmlDoc.createElement("results");
+	var xmlDoc = XMLUtility.createNewXMLDocument();
+	var resultsElement = xmlDoc.createElement("results");
 
 	//var outputFileName:String = null;
 	
@@ -34,6 +34,9 @@ extends MorphBaseQueryResultWriter(queryTranslator, xmlOutputStream) {
 	override def initialize() = { }
 
 	def preProcess() = {
+		//reinitialize xml document to allow multiple queries
+		xmlDoc = XMLUtility.createNewXMLDocument();
+		resultsElement = xmlDoc.createElement("results");
 		
 		//create root element
 		val rootElement = xmlDoc.createElement("sparql");
