@@ -99,7 +99,10 @@ extends MorphBaseQueryResultWriter(queryTranslator, xmlOutputStream) {
 							}
 
 						} else {
-							bindingElement.setTextContent("<literal>" + lexicalValue + "</literal>");	
+							val termTypeElementName = Some("literal");
+							val termTypeElement = xmlDoc.createElement(termTypeElementName.get);
+							bindingElement.appendChild(termTypeElement);
+							termTypeElement.setTextContent(lexicalValue);	
 						}				  
 					}				  
 				}
