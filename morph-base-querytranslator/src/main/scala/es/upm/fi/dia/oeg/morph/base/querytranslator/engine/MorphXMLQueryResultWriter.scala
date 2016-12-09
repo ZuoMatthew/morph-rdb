@@ -99,7 +99,7 @@ extends MorphBaseQueryResultWriter(queryTranslator, xmlOutputStream) {
 							}
 
 						} else {
-							bindingElement.setTextContent(lexicalValue);	
+							bindingElement.setTextContent("<literal>" + lexicalValue + "</literal>");	
 						}				  
 					}				  
 				}
